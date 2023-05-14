@@ -1,16 +1,23 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
-};
+import css from './App.module.css';
+import NoteList from './NoteList/NoteList';
+import Filter from './Filter/Filter';
+import { Component } from 'react';
+
+export class App extends Component {
+  state = {
+    notes: []
+  }
+
+
+
+
+
+  render() {
+    return (
+      <div className={css.App}>
+        <NoteList />
+        <Filter />
+      </div>
+    );
+  }
+}
