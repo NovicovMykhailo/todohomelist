@@ -1,6 +1,5 @@
 import css from './App.module.css';
 import NoteList from './NoteList/NoteList';
-// import Filter from './Filter/Filter';
 import { Component } from 'react';
 import * as API from './services/API';
 import Header from './Header/Header';
@@ -77,7 +76,7 @@ export class App extends Component {
   };
 
   render() {
-    const { status, notes, isEditModalOpen, isAddModalOpen, currentCard, filter, Mike, Kate} =
+    const { status, notes, isEditModalOpen, isAddModalOpen, currentCard, filter } =
       this.state;
     const normalizeFilter = filter.toLowerCase();
 
