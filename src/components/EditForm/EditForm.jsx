@@ -1,56 +1,78 @@
-//   "Mike": false,
-//   "Kate": false,
-//   "Title": "Title 1",
-//   "descrtption": "descrtption 1",
-
 import { Component } from 'react';
 import css from './EditForm.module.css';
+import * as API from '../services/API';
 
 export default class EditForm extends Component {
   state = {
     title: '',
-    description: '',
+    descrtption: '',
+    id: null,
   };
 
-  componentWillMount() {
-    const { title, description } = this.props;
-    this.setState({ title: title, description: description });
+  componentDidMount() {
+    const { title, descrtption, id } = this.props.item;
+    this.setState({ title: title, descrtption: descrtption, id: id });
   }
 
-    onSubmit = e => {
-      e.preventDefault()
-    console.log(e);
+  onSubmit = async e => {
+    e.preventDefault();
+    const{id} = this.state
+    const moddedItem = {
+      Title: this.state.title,
+      descrtption: this.state.descrtption,
+    };
+
+    try {
+      await API.modifyNotes(id, moddedItem);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      this.resetForm();
+      this.props.onClose();
+      this.props.Update();
+      
+    }
   };
 
+  onChange = e => {
+    this.setState(prev => ({ [e.target.name]: e.target.value }));
+  };
 
   resetForm = () => {
     this.setState({ title: '', description: '' });
   };
 
   render() {
-    const { title, description } = this.state;
+    const { title, descrtption } = this.state;
     return (
       <form onSubmit={this.onSubmit} className={css.form}>
         <h3 className={css.editName}>Изменить Заметку</h3>
         <input
           type="text"
+          name="title"
           className={css.editInput}
           value={title}
           placeholder=" Заголовок"
+          onChange={this.onChange}
         />
 
         <textarea
           className={css.edittext}
-          name="description"
+          name="descrtption"
           cols="30"
           rows="10"
-          value={description}
+          value={descrtption}
           placeholder="Описание"
+          onChange={this.onChange}
         ></textarea>
 
         <div className={css.btnContainer}>
           <button type="submit" className={css.formBtn}></button>
-          <button type="button" className={css.formBtnClose} onClick={this.props.onClose}></button>
+          <button
+            type="button"
+            className={css.formBtnClose}
+            onClick={this.props.onClose}
+          ></button>
         </div>
       </form>
     );

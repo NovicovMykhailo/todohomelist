@@ -7,7 +7,7 @@ export default function Header(props) {
         <button type="button" className={css.button} onClick={props.onAdd}>
           +
         </button>
-        <Filter />
+        <Filter onChange={props.onChange} filterValue={props.filterValue} />
       </div>
     );
 }

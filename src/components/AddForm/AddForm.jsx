@@ -1,28 +1,41 @@
-
 import { Component } from 'react';
 import css from './AddForm.module.css';
+import * as API from '../services/API';
 
 export default class AddForm extends Component {
   state = {
     title: '',
-    description: '',
+    descrtption: '',
   };
 
-  onSubmit = e => {
-    e.preventDefault()
-    console.log(e);
+  onSubmit = async e => {
+    e.preventDefault();
+    const item = {
+      Title: this.state.title,
+      descrtption: this.state.descrtption,
+      Mike: false,
+      Kate: false,
+    };
+    try {
+      await API.addNotes(item);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      this.props.Update();
+      this.props.onClose();
+    }
   };
-  onChange = (e) => {
-    this.setState({[e.target.name]: e.target.value})
-    
-  }
+
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   resetForm = () => {
     this.setState({ title: '', description: '' });
   };
 
   render() {
-    const { title, description } = this.state;
+    const { title, descrtption } = this.state;
     return (
       <form onSubmit={this.onSubmit} className={css.form}>
         <h3 className={css.name}>Добавить Заметку</h3>
@@ -37,10 +50,10 @@ export default class AddForm extends Component {
 
         <textarea
           className={css.textarea}
-          name="description"
+          name="descrtption"
           cols="30"
           rows="10"
-          value={description}
+          value={descrtption}
           placeholder="Описание"
           onChange={this.onChange}
         ></textarea>

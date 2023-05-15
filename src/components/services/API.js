@@ -11,9 +11,9 @@ export async function getNotes() {
     console.log(error);
   }
 }
-export async function addNotes() {
+export async function addNotes(obj) {
   try {
-    const response = await axios.post(URL);
+    const response = await axios.post(URL,obj);
 
     return response;
   } catch (error) {
