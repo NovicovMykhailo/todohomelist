@@ -4,11 +4,16 @@ import NoteList from './NoteList/NoteList';
 import { Component } from 'react';
 import * as API from './services/API';
 import Header from './Header/Header';
+import EditForm from './EditForm/EditForm';
+import AddForm from './AddForm/AddForm';
+import Modal from './Modal/Modal';
 
 export class App extends Component {
   state = {
     notes: [],
     status: 'idle',
+    isAddModalOpen: false,
+    isEditModalOpen: false,
   };
 
   async componentDidMount() {
@@ -26,15 +31,27 @@ export class App extends Component {
     // }
   }
 
+  onEdit = () => {
+    this.setState(prev => ({ isEditModalOpen: !prev.isEditModalOpen }));
+  };
+  onAdd = () => {
+     this.setState(prev => ({ isAddModalOpen: !prev.isAddModalOpen }));
+    
+  }
+
   render() {
-    const { status, notes } = this.state;
+    const { status, notes, isEditModalOpen, isAddModalOpen } = this.state;
 
     return (
       <div className={css.App}>
-        <Header />
-        {status === 'resolve' && <NoteList notes={notes} />}
-
-        {/* <Filter /> */}
+        <Header onAdd={this.onAdd} />
+        {status === 'resolve' && <NoteList notes={notes} onEdit={this.onEdit} />}
+        {isEditModalOpen && (
+          <Modal children={<EditForm onClose={this.onEdit} />} onClose={this.onEdit} />
+        )}
+        {isAddModalOpen && (
+          <Modal children={<AddForm onClose={this.onAdd} />} onClose={this.onAdd} />
+        )}
       </div>
     );
   }

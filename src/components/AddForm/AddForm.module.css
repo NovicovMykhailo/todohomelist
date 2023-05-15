@@ -1,0 +1,94 @@
+.form {
+  width: 400px;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  padding: 25px;
+  background-color: #fff;
+
+  border-radius: 15px;
+  box-shadow: rgba(124, 123, 123, 0.25) 0px 0.0625em 0.0625em,
+    rgba(131, 130, 130, 0.25) 0px 0.125em 0.5em,
+    rgba(147, 145, 145, 0.1) 0px 0px 0px 1px inset;
+}
+.name{
+   font-family: 'DM Sans', sans-serif;
+   letter-spacing: 0.9px;
+   text-transform: capitalize;
+   font-weight: 600;
+   text-align: center;
+}
+
+.input,
+.textarea {
+  outline: none;
+  resize: none;
+  margin: 0;
+  padding: 8px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+}
+.input:focus,
+.textarea:focus {
+   box-shadow: rgba(18, 215, 215, 0.766) 0px 1px 3px 0px,
+    rgba(3, 230, 230, 0.766) 0px 0px 0px 1px;}
+
+.btnContainer{
+  display: flex;
+  gap: 15px;
+
+}
+.formBtn {
+    width: 100%;
+  height: 36px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+  cursor: pointer;
+  border-radius: 15px;
+  border: none;
+  font-weight: 800;
+  background-image: url('../images/tick.png');
+  background-size: 12%;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+    transition: all 0.1s ease;
+}
+.formBtn:hover {
+  background-color: rgb(235, 246, 240);
+    box-shadow: rgb(235, 246, 240) 0px 30px 90px;
+    scale: 1.05;
+}
+
+
+
+
+.formBtnClose{
+  width: 100%;
+  height: 36px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+  cursor: pointer;
+  border-radius: 15px;
+  border: none;
+  font-weight: 800;
+  background-image: url('../images/cancel.png');
+  background-size: 9%;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  transition: all 0.1s ease;
+
+}
+.formBtnClose:hover {
+  background-color: rgb(246, 234, 234);
+  box-shadow: rgb(246, 234, 234) 0px 30px 90px;
+  scale: 1.05;
+}

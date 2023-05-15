@@ -1,0 +1,23 @@
+.fieldset{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+}
+.field{
+    width: 100%;
+    height: 32px;
+    font-size: 18px;
+    padding: 0 8px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    outline:none
+}
+
+.field::placeholder{
+ font-size: 18px;
+}
+.field:focus{
+   outline:1px solid teal;
+}
