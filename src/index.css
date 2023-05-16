@@ -9,11 +9,12 @@ body {
   background-image: url('../src/components/images/pexels-pixabay-229.webp');
   background-size:50%;
 
-  /* background-repeat: no-repeat; */
   height: 100%;
 
 }
-
+body::-webkit-scrollbar {
+  display: none;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -22,4 +23,11 @@ code {
   body{
       background-size:25%;
   }
+}
+
+.undefined{
+    position: relative;
+    top: 40vh;
+    transform: translateY(-50%);
+    justify-self: center;
 }

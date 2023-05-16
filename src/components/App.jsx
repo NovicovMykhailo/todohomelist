@@ -6,6 +6,7 @@ import Header from './Header/Header';
 import EditForm from './EditForm/EditForm';
 import AddForm from './AddForm/AddForm';
 import Modal from './Modal/Modal';
+import { Triangle } from 'react-loader-spinner';
 
 export class App extends Component {
   state = {
@@ -34,7 +35,7 @@ export class App extends Component {
 
   async componentDidUpdate(prevProps, prevState) {
     if (this.state.doesItChange !== prevState.doesItChange) {
-      console.log('will update');
+      // console.log('will update');
       try {
         this.setState({ status: 'pending' });
         const notes = await API.getNotes();
@@ -72,36 +73,53 @@ export class App extends Component {
   };
 
   Update = () => {
+    this.setState({ status: 'pending' });
     this.setState(prevState => ({ doesItChange: prevState.doesItChange + 1 }));
   };
 
   render() {
-    const { status, notes, isEditModalOpen, isAddModalOpen, currentCard, filter } =
-      this.state;
+    const {
+      status,
+      notes,
+      isEditModalOpen,
+      isAddModalOpen,
+      currentCard,
+      filter,
+      Mike,
+      Kate,
+    } = this.state;
     const normalizeFilter = filter.toLowerCase();
 
-    const foundNotes = notes.filter(
-      note => {
-           return note.Title.toLowerCase().includes(normalizeFilter);
+    function filterItem(notesArrays) {
+      if (Mike !== false) {
+        return notesArrays.filter(note => note.Mike);
+      }
+      if (Kate !== false) {
+        return notesArrays.filter(note => note.Kate);
       }
 
-       
+      return notesArrays.filter(note => {
+        return note.Title.toLowerCase().includes(normalizeFilter);
+      });
+    }
 
-        // if (Mike !== false) {
-        // console.log(note.Mike===true)
-        // return note.Mike.includes(Mike === true);
-        // }
-        // if (Kate !== false) {
-        //   return note.Kate.includes(Kate === true);
-        // }
-      
-       
-      //  note.Title.toLowerCase().includes(normalizeFilter,Mike,Kate)
-    );
+    const foundNotes = filterItem(notes);
+
 
     return (
       <div className={css.App}>
         <Header onAdd={this.onAdd} onChange={this.filtered} filterValue={filter} />
+        {status === 'pending' && (
+          <Triangle
+            height="140"
+            width="140"
+            color="#4fa94d"
+            ariaLabel="triangle-loading"
+            wrapperStyle={{}}
+            wrapperClassName="Loader"
+            visible={true}
+          />
+        )}
         {status === 'resolve' && (
           <NoteList
             notes={foundNotes}
@@ -110,6 +128,7 @@ export class App extends Component {
             update={this.Update}
           />
         )}
+
         {isEditModalOpen && (
           <Modal
             children={

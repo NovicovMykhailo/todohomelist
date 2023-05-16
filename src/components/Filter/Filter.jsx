@@ -13,11 +13,11 @@ export default function Filter({ onChange, filterValue }) {
       <div className={css.checkContainer}>
         <label>
           Mike
-          <input type="checkbox" name="filter" id="Mike" onChange={onChange} />
+          <input type="checkbox" name="filter" id="Mike" onChange={onChange} className={css.radio} />
         </label>
         <label>
           Kate
-          <input type="checkbox" name="filter" id="Kate" onChange={onChange} />
+          <input type="checkbox" name="filter" id="Kate" onChange={onChange} className={css.radio} />
         </label>
       </div>
     </div>
