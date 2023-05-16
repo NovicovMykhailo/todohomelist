@@ -1,33 +1,79 @@
 @import-normalize;
 /* bring in normalize.css styles */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('./components/fonts/roboto-thin-webfont.woff2') format('woff2'),
+    url('./components/fonts/roboto-thin-webfont.woff') format('woff');
+  font-weight: thin;
+
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('./components/fonts/roboto-light-webfont.woff2') format('woff2'),
+    url('./components/fonts/roboto-light-webfont.woff') format('woff');
+  font-weight: light;
+
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('./components/fonts/roboto-regular-webfont.woff2') format('woff2'),
+    url('./components/fonts/roboto-regular-webfont.woff') format('woff');
+  font-weight: normal;
+
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('./components/fonts/roboto-medium-webfont.woff2') format('woff2'),
+    url('./components/fonts/roboto-medium-webfont.woff') format('woff');
+
+  font-weight: medium;
+
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('./components/fonts/roboto-bold-webfont.woff2') format('woff2'),
+    url('./components/fonts/roboto-bold-webfont.woff') format('woff');
+  font-weight: bold;
+
+}
+
+
+
+
+
+b, button{
+  font-family: 'Helvetica Neue',sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
 
 body {
   margin: 0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
+    'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue','DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('../src/components/images/pexels-pixabay-229.webp');
-  background-size:50%;
+  background-size: 50%;
 
   height: 100%;
-
 }
 body::-webkit-scrollbar {
   display: none;
 }
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-@media Screen and (min-width: 568px){
-  body{
-      background-size:25%;
+@media Screen and (min-width: 568px) {
+  body {
+    background-size: 25%;
   }
 }
 
-.undefined{
-    position: relative;
-    top: 40vh;
-    transform: translateY(-50%);
-    justify-self: center;
+.undefined {
+  position: relative;
+  top: 40vh;
+  transform: translateY(-50%);
+  justify-self: center;
 }
