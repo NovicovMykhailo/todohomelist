@@ -6,9 +6,20 @@ body {
   font-family: 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('../src/components/images/pexels-pixabay-229.webp');
+  background-size:50%;
+
+  /* background-repeat: no-repeat; */
+  height: 100%;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+@media Screen and (min-width: 568px){
+  body{
+      background-size:25%;
+  }
 }
