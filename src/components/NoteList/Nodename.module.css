@@ -1,15 +1,19 @@
-.container{
+.container {
   justify-self: center;
   width: 100%;
-
 }
 
 .list {
-  display: grid;
+  /* display: grid;
   max-width: calc(100vw - 24px);
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  grid-gap: 16px;
-      padding: 0 12px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 2fr));
+  grid-gap: 12px; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0 12px;
+  flex-basis: fill;
 
   list-style: none;
 }

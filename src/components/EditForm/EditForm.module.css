@@ -1,5 +1,5 @@
 .form {
-  width: 400px;
+
   display: flex;
   gap: 15px;
   flex-direction: column;
@@ -40,6 +40,7 @@
 .btnContainer{
   display: flex;
   gap: 15px;
+  flex-direction: column;
 
 }
 .formBtn {
@@ -92,3 +93,12 @@
   scale: 1.05;
 }
 
+@media screen and (min-width: 568px){
+  .btnContainer{
+    flex-direction: row;
+  }
+  .form {
+      width: 400px;
+
+  }
+}
