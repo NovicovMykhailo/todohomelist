@@ -1,17 +1,27 @@
 {
   "files": {
-    "main.css": "/todohomelist/static/css/main.6c3c824e.css",
+    "main.css": "/todohomelist/static/css/main.894d263a.css",
     "main.js": "/todohomelist/static/js/main.80447b21.js",
     "static/media/pexels-pixabay-229.webp": "/todohomelist/static/media/pexels-pixabay-229.90c2cd2615b70e441607.webp",
+    "static/media/roboto-bold-webfont.woff": "/todohomelist/static/media/roboto-bold-webfont.ac304f6f584e827f8572.woff",
+    "static/media/roboto-medium-webfont.woff": "/todohomelist/static/media/roboto-medium-webfont.ac4116f2bed3678bae02.woff",
+    "static/media/roboto-regular-webfont.woff": "/todohomelist/static/media/roboto-regular-webfont.e7f796d4110cd0019da1.woff",
+    "static/media/roboto-light-webfont.woff": "/todohomelist/static/media/roboto-light-webfont.8241f26476b4a6d5a512.woff",
+    "static/media/roboto-thin-webfont.woff": "/todohomelist/static/media/roboto-thin-webfont.5aa36e0049ff292750a9.woff",
     "static/media/cancel.png": "/todohomelist/static/media/cancel.866d98d5059375ae5b71.png",
+    "static/media/roboto-bold-webfont.woff2": "/todohomelist/static/media/roboto-bold-webfont.42f06c65147d827fc2dc.woff2",
+    "static/media/roboto-medium-webfont.woff2": "/todohomelist/static/media/roboto-medium-webfont.97f07e0ff22126c1b30a.woff2",
+    "static/media/roboto-regular-webfont.woff2": "/todohomelist/static/media/roboto-regular-webfont.c6aa8986586e956353c5.woff2",
+    "static/media/roboto-light-webfont.woff2": "/todohomelist/static/media/roboto-light-webfont.c4fd3f92fa70f7abcaef.woff2",
+    "static/media/roboto-thin-webfont.woff2": "/todohomelist/static/media/roboto-thin-webfont.5be48b8cdf3501ad74d6.woff2",
     "index.html": "/todohomelist/index.html",
     "static/media/edit-icon.svg": "/todohomelist/static/media/edit-icon.5cca96bbf4bff6375bc6.svg",
     "static/media/radio.svg": "/todohomelist/static/media/radio.7c6983dad004b320a4d9.svg",
-    "main.6c3c824e.css.map": "/todohomelist/static/css/main.6c3c824e.css.map",
+    "main.894d263a.css.map": "/todohomelist/static/css/main.894d263a.css.map",
     "main.80447b21.js.map": "/todohomelist/static/js/main.80447b21.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c3c824e.css",
+    "static/css/main.894d263a.css",
     "static/js/main.80447b21.js"
   ]
 }
