@@ -19,6 +19,7 @@
    text-align: center;
 }
 
+
 .input,
 .textarea {
   outline: none;
@@ -102,3 +103,4 @@
       width: 400px;
   }
 }
+

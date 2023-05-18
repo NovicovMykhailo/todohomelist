@@ -54,7 +54,16 @@ export default class EditForm extends Component {
           value={title}
           placeholder=" Заголовок"
           onChange={this.onChange}
+          list="toDo"
         />
+        <datalist id="toDo" className={css.Todo}>
+          <option value="Постирушки">Постирушки</option>
+          <option value="Джинджик">Джинджик</option>
+          <option value="Посуда">Посуда</option>
+          <option value="Ужин">Ужин</option>
+          <option value="Завтрак">Завтрак</option>
+          <option value="Уборка">Уборка</option>
+        </datalist>
 
         <textarea
           className={css.edittext}
@@ -68,11 +77,7 @@ export default class EditForm extends Component {
 
         <div className={css.btnContainer}>
           <button type="submit" className={css.formBtn}></button>
-          <button
-            type="button"
-            className={css.formBtnClose}
-            onClick={this.props.onClose}
-          ></button>
+          <button type="button" className={css.formBtnClose} onClick={this.props.onClose}></button>
         </div>
       </form>
     );

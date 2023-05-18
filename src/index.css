@@ -5,14 +5,12 @@
   src: url('./components/fonts/roboto-thin-webfont.woff2') format('woff2'),
     url('./components/fonts/roboto-thin-webfont.woff') format('woff');
   font-weight: thin;
-
 }
 @font-face {
   font-family: 'DM Sans';
   src: url('./components/fonts/roboto-light-webfont.woff2') format('woff2'),
     url('./components/fonts/roboto-light-webfont.woff') format('woff');
   font-weight: light;
-
 }
 
 @font-face {
@@ -20,7 +18,6 @@
   src: url('./components/fonts/roboto-regular-webfont.woff2') format('woff2'),
     url('./components/fonts/roboto-regular-webfont.woff') format('woff');
   font-weight: normal;
-
 }
 @font-face {
   font-family: 'DM Sans';
@@ -28,30 +25,25 @@
     url('./components/fonts/roboto-medium-webfont.woff') format('woff');
 
   font-weight: medium;
-
 }
 @font-face {
   font-family: 'DM Sans';
   src: url('./components/fonts/roboto-bold-webfont.woff2') format('woff2'),
     url('./components/fonts/roboto-bold-webfont.woff') format('woff');
   font-weight: bold;
-
 }
 
-
-
-
-
-b, button{
-  font-family: 'Helvetica Neue',sans-serif;
+b,
+button {
+  font-family: 'Helvetica Neue', sans-serif;
   font-weight: 600;
   letter-spacing: 0.03em;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
-    'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue','DM Sans', sans-serif;
+  font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell',
+    'Helvetica Neue', 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('../src/components/images/pexels-pixabay-229.webp');
@@ -76,4 +68,31 @@ code {
   top: 40vh;
   transform: translateY(-50%);
   justify-self: center;
+}
+
+.undefined {
+  position: initial !important;
+
+  top: 0;
+  transform: translateY(0);
+  padding: 8px;
+}
+.react-datalist-input__container{
+  width:auto;
+}
+
+.react-datalist-input__label {
+  display: none;
+}
+.react-datalist-input__textbox {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+}
+.react-datalist-input__listbox {
+  top: 38px;
+  left: 0;
+  border-radius: 8px;
+
 }
