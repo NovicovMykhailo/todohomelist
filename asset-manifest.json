@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/todohomelist/static/css/main.4c16b548.css",
-    "main.js": "/todohomelist/static/js/main.0d9f7e99.js",
+    "main.css": "/todohomelist/static/css/main.47142e5a.css",
+    "main.js": "/todohomelist/static/js/main.35523ef8.js",
     "static/media/pexels-pixabay-229.webp": "/todohomelist/static/media/pexels-pixabay-229.90c2cd2615b70e441607.webp",
     "static/media/roboto-bold-webfont.woff": "/todohomelist/static/media/roboto-bold-webfont.ac304f6f584e827f8572.woff",
     "static/media/roboto-medium-webfont.woff": "/todohomelist/static/media/roboto-medium-webfont.ac4116f2bed3678bae02.woff",
@@ -17,11 +17,11 @@
     "index.html": "/todohomelist/index.html",
     "static/media/edit-icon.svg": "/todohomelist/static/media/edit-icon.5cca96bbf4bff6375bc6.svg",
     "static/media/radio.svg": "/todohomelist/static/media/radio.7c6983dad004b320a4d9.svg",
-    "main.4c16b548.css.map": "/todohomelist/static/css/main.4c16b548.css.map",
-    "main.0d9f7e99.js.map": "/todohomelist/static/js/main.0d9f7e99.js.map"
+    "main.47142e5a.css.map": "/todohomelist/static/css/main.47142e5a.css.map",
+    "main.35523ef8.js.map": "/todohomelist/static/js/main.35523ef8.js.map"
   },
   "entrypoints": [
-    "static/css/main.4c16b548.css",
-    "static/js/main.0d9f7e99.js"
+    "static/css/main.47142e5a.css",
+    "static/js/main.35523ef8.js"
   ]
 }
