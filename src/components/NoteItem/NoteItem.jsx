@@ -63,9 +63,18 @@ export default class NoteItem extends Component {
       this.props.update();
     }
   };
+  activeItem() {
+    if (this.state.Mike) {
+      return 'rgb(27,168,240)';
+    }
+    if (this.state.Kate) {
+      return 'rgb(239,195,195)';
+    }
+    return 'rgb(211, 230, 220)';
+  }
 
   render() {
-    const normalizedDate = format(new Date(this.props.note.createdAt), 'dd MMM yyyy', {
+    const normalizedDate = format(new Date(this.props.note.createdAt), 'dd MMM ', {
       locale: ru,
     });
 
@@ -75,9 +84,7 @@ export default class NoteItem extends Component {
       <li
         className={css.card}
         style={{
-          backgroundColor: `${
-            Mike || Kate ? 'rgb(102, 189, 150)' : 'rgb(211, 230, 220)'
-          }`,
+          backgroundColor: `${this.activeItem()}`,
         }}
       >
         <div className={css.checkBoxes}>
@@ -85,34 +92,17 @@ export default class NoteItem extends Component {
             <div className={css.checkBoxWrapper}>
               <label>
                 Kate
-                <input
-                  type="checkbox"
-                  name="Kate"
-                  id="Kate"
-                  checked={Kate}
-                  onChange={this.onChange}
-                />
+                <input type="checkbox" name="Kate" id="Kate" checked={Kate} onChange={this.onChange} />
               </label>
             </div>
             <div className={css.checkBoxWrapper}>
               <label>
                 Mike
-                <input
-                  type="checkbox"
-                  name="Mike"
-                  id="Mike"
-                  checked={Mike}
-                  onChange={this.onChange}
-                />
+                <input type="checkbox" name="Mike" id="Mike" checked={Mike} onChange={this.onChange} />
               </label>
             </div>
           </div>
-          <button
-            type="button"
-            className={css.edit}
-            name="edit"
-            onClick={this.onClick}
-          ></button>
+          <button type="button" className={css.edit} name="edit" onClick={this.onClick}></button>
           <p className={css.date}>{normalizedDate}</p>
         </div>
         <h3>

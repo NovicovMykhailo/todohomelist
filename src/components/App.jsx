@@ -7,6 +7,7 @@ import EditForm from './EditForm/EditForm';
 import AddForm from './AddForm/AddForm';
 import Modal from './Modal/Modal';
 import { Triangle } from 'react-loader-spinner';
+import Statistics from './Statistics/Statistics';
 
 export class App extends Component {
   state = {
@@ -19,6 +20,7 @@ export class App extends Component {
     filter: '',
     Mike: false,
     Kate: false,
+    ShowAll: false,
   };
 
   async componentDidMount() {
@@ -55,6 +57,9 @@ export class App extends Component {
     if (data.target.id === 'Mike') {
       this.setState(prevState => ({ Mike: !prevState.Mike }));
     }
+    if (data.target.id === 'ShowAll') {
+      this.setState(prevState => ({ ShowAll: !prevState.ShowAll }));
+    }
     if (data.target.placeholder === 'find') {
       this.setState({ filter: data.target.value });
     }
@@ -78,16 +83,7 @@ export class App extends Component {
   };
 
   render() {
-    const {
-      status,
-      notes,
-      isEditModalOpen,
-      isAddModalOpen,
-      currentCard,
-      filter,
-      Mike,
-      Kate,
-    } = this.state;
+    const { status, notes, isEditModalOpen, isAddModalOpen, currentCard, filter, Mike, Kate, ShowAll } = this.state;
     const normalizeFilter = filter.toLowerCase();
 
     function filterItem(notesArrays) {
@@ -97,14 +93,20 @@ export class App extends Component {
       if (Kate !== false) {
         return notesArrays.filter(note => note.Kate);
       }
+      if (ShowAll !== false) {
+        return notesArrays;
+      }
+      if (filter !== '') {
+        return notesArrays.filter(note => {
+          return note.Title.toLowerCase().includes(normalizeFilter);
+        });
+      }
+      return notesArrays.filter(note => note.Kate !== true && note.Mike !== true)
 
-      return notesArrays.filter(note => {
-        return note.Title.toLowerCase().includes(normalizeFilter);
-      });
+
     }
 
     const foundNotes = filterItem(notes);
-
 
     return (
       <div className={css.App}>
@@ -121,27 +123,20 @@ export class App extends Component {
           />
         )}
         {status === 'resolve' && (
-          <NoteList
-            notes={foundNotes}
-            onEdit={this.onEdit}
-            data={this.showItem}
-            update={this.Update}
-          />
+          <>
+            <Statistics props={notes} />
+            <NoteList notes={foundNotes} onEdit={this.onEdit} data={this.showItem} update={this.Update} />
+          </>
         )}
 
         {isEditModalOpen && (
           <Modal
-            children={
-              <EditForm onClose={this.onEdit} item={currentCard} Update={this.Update} />
-            }
+            children={<EditForm onClose={this.onEdit} item={currentCard} Update={this.Update} />}
             onClose={this.onEdit}
           />
         )}
         {isAddModalOpen && (
-          <Modal
-            children={<AddForm onClose={this.onAdd} Update={this.Update} />}
-            onClose={this.onAdd}
-          />
+          <Modal children={<AddForm onClose={this.onAdd} Update={this.Update} />} onClose={this.onAdd} />
         )}
       </div>
     );

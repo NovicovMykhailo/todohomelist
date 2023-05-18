@@ -19,6 +19,10 @@ export default function Filter({ onChange, filterValue }) {
           Kate
           <input type="checkbox" name="filter" id="Kate" onChange={onChange} className={css.radio} />
         </label>
+        <label>
+         All
+          <input type="checkbox" name="filter" id="ShowAll" onChange={onChange} className={css.radio} />
+        </label>
       </div>
     </div>
   );
