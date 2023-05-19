@@ -3,7 +3,7 @@ import DatalistInput from 'react-datalist-input';
 import 'react-datalist-input/dist/styles.css';
 import css from './EditForm.module.css';
 import * as API from '../services/API';
-import { items, setItems } from '../services/Items';
+import { items} from '../services/Items';
 
 export default class EditForm extends Component {
   state = {
