@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/todohomelist/static/css/main.8bb25ea8.css",
-    "main.js": "/todohomelist/static/js/main.1a229aad.js",
+    "main.css": "/todohomelist/static/css/main.2f5216ac.css",
+    "main.js": "/todohomelist/static/js/main.b2491890.js",
     "static/media/pexels-pixabay-229.webp": "/todohomelist/static/media/pexels-pixabay-229.90c2cd2615b70e441607.webp",
+    "static/media/back.png": "/todohomelist/static/media/back.60341aadc6562acbc5a9.png",
     "static/media/roboto-bold-webfont.woff": "/todohomelist/static/media/roboto-bold-webfont.ac304f6f584e827f8572.woff",
     "static/media/roboto-medium-webfont.woff": "/todohomelist/static/media/roboto-medium-webfont.ac4116f2bed3678bae02.woff",
     "static/media/roboto-regular-webfont.woff": "/todohomelist/static/media/roboto-regular-webfont.e7f796d4110cd0019da1.woff",
@@ -14,16 +15,21 @@
     "static/media/roboto-regular-webfont.woff2": "/todohomelist/static/media/roboto-regular-webfont.c6aa8986586e956353c5.woff2",
     "static/media/roboto-light-webfont.woff2": "/todohomelist/static/media/roboto-light-webfont.c4fd3f92fa70f7abcaef.woff2",
     "static/media/roboto-thin-webfont.woff2": "/todohomelist/static/media/roboto-thin-webfont.5be48b8cdf3501ad74d6.woff2",
-    "static/media/delete.svg": "/todohomelist/static/media/delete.2a9d0b026b1b1bfdfde2.svg",
+    "static/media/notification.svg?s3g3t9": "/todohomelist/static/media/notification.5d0158671dd860c714c4.svg",
+    "static/media/notification.eot": "/todohomelist/static/media/notification.3657084dc0419605a91c.eot",
+    "static/media/notification.woff?s3g3t9": "/todohomelist/static/media/notification.c392cd33d9d9de730f9d.woff",
+    "static/media/notification.ttf?s3g3t9": "/todohomelist/static/media/notification.c5d9251ea82e42f75381.ttf",
+    "static/media/delete.svg": "/todohomelist/static/media/delete.c7e3ea49ecadbd2117f2.svg",
+    "static/media/reset.svg": "/todohomelist/static/media/reset.7961c0d862773649a0e2.svg",
     "index.html": "/todohomelist/index.html",
     "static/media/pencil-edit.svg": "/todohomelist/static/media/pencil-edit.6acfa295268944b850d39ac3247425fe.svg",
     "static/media/edit-icon.svg": "/todohomelist/static/media/edit-icon.af88ac62eef237730680.svg",
     "static/media/radio.svg": "/todohomelist/static/media/radio.7c6983dad004b320a4d9.svg",
-    "main.8bb25ea8.css.map": "/todohomelist/static/css/main.8bb25ea8.css.map",
-    "main.1a229aad.js.map": "/todohomelist/static/js/main.1a229aad.js.map"
+    "main.2f5216ac.css.map": "/todohomelist/static/css/main.2f5216ac.css.map",
+    "main.b2491890.js.map": "/todohomelist/static/js/main.b2491890.js.map"
   },
   "entrypoints": [
-    "static/css/main.8bb25ea8.css",
-    "static/js/main.1a229aad.js"
+    "static/css/main.2f5216ac.css",
+    "static/js/main.b2491890.js"
   ]
 }
