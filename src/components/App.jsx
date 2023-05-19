@@ -132,11 +132,11 @@ export class App extends Component {
         {isEditModalOpen && (
           <Modal
             children={<EditForm onClose={this.onEdit} item={currentCard} Update={this.Update} />}
-            onClose={this.onEdit}
+            onClose={this.onEdit} 
           />
         )}
         {isAddModalOpen && (
-          <Modal children={<AddForm onClose={this.onAdd} Update={this.Update} />} onClose={this.onAdd} />
+          <Modal children={<AddForm onClose={this.onAdd} Update={this.Update} toggle={this.onAdd} />} onClose={this.onAdd} />
         )}
       </div>
     );

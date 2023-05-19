@@ -1,12 +1,16 @@
 import { Component } from 'react';
+import DatalistInput from 'react-datalist-input';
+import 'react-datalist-input/dist/styles.css';
 import css from './EditForm.module.css';
 import * as API from '../services/API';
+import { items, setItems } from '../services/Items';
 
 export default class EditForm extends Component {
   state = {
     title: '',
     descrtption: '',
     id: null,
+    isExpanded: false,
   };
 
   componentDidMount() {
@@ -16,7 +20,7 @@ export default class EditForm extends Component {
 
   onSubmit = async e => {
     e.preventDefault();
-    const{id} = this.state
+    const { id } = this.state;
     const moddedItem = {
       Title: this.state.title,
       descrtption: this.state.descrtption,
@@ -30,7 +34,6 @@ export default class EditForm extends Component {
       this.resetForm();
       this.props.onClose();
       this.props.Update();
-      
     }
   };
 
@@ -47,23 +50,17 @@ export default class EditForm extends Component {
     return (
       <form onSubmit={this.onSubmit} className={css.form}>
         <h3 className={css.editName}>Изменить Заметку</h3>
-        <input
-          type="text"
-          name="title"
+        <DatalistInput
           className={css.editInput}
+          name="title"
+          placeholder="Заголовок"
+          type="text"
           value={title}
-          placeholder=" Заголовок"
-          onChange={this.onChange}
-          list="toDo"
+          showLabel={false}
+          onChange={e => this.setState({ title: e.target.value })}
+          onSelect={item => this.setState({ title: item.value })}
+          items={items()}
         />
-        <datalist id="toDo" className={css.Todo}>
-          <option value="Постирушки">Постирушки</option>
-          <option value="Джинджик">Джинджик</option>
-          <option value="Посуда">Посуда</option>
-          <option value="Ужин">Ужин</option>
-          <option value="Завтрак">Завтрак</option>
-          <option value="Уборка">Уборка</option>
-        </datalist>
 
         <textarea
           className={css.edittext}

@@ -3,12 +3,16 @@ import css from './AddForm.module.css';
 import * as API from '../services/API';
 import DatalistInput from 'react-datalist-input';
 import 'react-datalist-input/dist/styles.css';
-
+import { items, setItems, removeItem } from '../services/Items';
+import FormEditor from './FormEditor';
 
 export default class AddForm extends Component {
   state = {
     title: '',
     descrtption: '',
+    isExpanded: false,
+    items: items(),
+    showEditor: false,
   };
 
   onSubmit = async e => {
@@ -25,8 +29,15 @@ export default class AddForm extends Component {
       console.log(error);
     } finally {
       this.props.Update();
+      setItems(this.state.title);
       this.props.onClose();
     }
+  };
+
+  deleteItem = e => {
+    const selectedEl = e.target.form[2].selectedOptions[0].value;
+    removeItem(selectedEl);
+    this.props.toggle();
   };
 
   onChange = e => {
@@ -37,46 +48,31 @@ export default class AddForm extends Component {
     this.setState({ title: '', description: '' });
   };
 
+  onClick = () => {
+    this.setState(prev => ({ isExpanded: !prev.isExpanded }));
+  };
+  onOpenEditor = () => {
+    this.setState(prev => ({ showEditor: !prev.showEditor }));
+  };
+
   render() {
-    const { title, descrtption } = this.state;
+    const { title, descrtption, items, showEditor } = this.state;
     return (
       <form onSubmit={this.onSubmit} className={css.form}>
         <h3 className={css.name}>Добавить Заметку</h3>
         <DatalistInput
           className={css.input}
-          name="title"
-          type="text"
-          value={title}
-          // placeholder="Заголовок"
-          onChange={this.onChange}
-          onSelect={item => console.log(item.value)}
-          items={[
-            { id: 'Постирушки', value: 'Постирушки' },
-            { id: 'Джинджик', value: 'Джинджик' },
-            { id: 'Посуда', value: 'Посуда' },
-            { id: 'Ужин', value: 'Ужин' },
-            { id: 'Завтрак', value: 'Завтрак' },
-            { id: 'Уборка', value: 'Уборка' },
-          ]}
-        />
-        {/* <input
-          className={css.input}
-          name="title"
-          type="text"
-          value={title}
           placeholder="Заголовок"
-          onChange={this.onChange}
-          list="toDo"
+          name="title"
+          type="text"
+          value={title}
+          showLabel={false}
+          onSelect={item => this.setState({ title: item.value })}
+          onChange={e => this.setState({ title: e.target.value })}
+          items={items}
+          onClick={this.onClick}
+          isExpanded={this.state.isExpanded}
         />
-        <datalist id="toDo" className={css.Todo}>
-          <option value="Постирушки">Постирушки</option>
-          <option value="Джинджик">Джинджик</option>
-          <option value="Посуда">Посуда</option>
-          <option value="Ужин">Ужин</option>
-          <option value="Завтрак">Завтрак</option>
-          <option value="Уборка">Уборка</option>
-        </datalist> */}
-
         <textarea
           className={css.textarea}
           name="descrtption"
@@ -86,6 +82,12 @@ export default class AddForm extends Component {
           placeholder="Описание"
           onChange={this.onChange}
         ></textarea>
+        {!showEditor && (
+          <button type="button" onClick={this.onOpenEditor} className={css.showEditor}>
+            Редактировать закладки 🖉
+          </button>
+        )}
+        {showEditor && <FormEditor items={items} onClick={this.deleteItem} onCancel={this.onOpenEditor} />}
         <div className={css.btnContainer}>
           <button type="submit" className={css.formBtn}></button>
           <button type="button" className={css.formBtnClose} onClick={this.props.onClose}></button>

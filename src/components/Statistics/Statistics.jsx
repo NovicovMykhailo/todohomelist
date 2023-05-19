@@ -10,7 +10,7 @@ export default function Statistics({ props }) {
     <div className={css.stats}>
       <ul className={css.list}>
         <li>
-          TOTAL: <span>{Total}</span>
+          Total: <span>{Total}</span>
         </li>
         <li>
           ❌: <span>{UnDone}</span>
