@@ -1,13 +1,18 @@
-import { Component } from 'react';
+import { Component, createRef } from 'react';
 import css from './AddForm.module.css';
 import * as API from '../services/API';
 import DatalistInput from 'react-datalist-input';
 import 'react-datalist-input/dist/styles.css';
 import { items, setItems, removeItem } from '../services/Items';
 import FormEditor from './FormEditor';
-import editIcon from '../images/pencil-edit.svg'
+import editIcon from '../images/pencil-edit.svg';
+
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+
 
 export default class AddForm extends Component {
+
   state = {
     title: '',
     descrtption: '',
@@ -15,30 +20,40 @@ export default class AddForm extends Component {
     items: items(),
     showEditor: false,
   };
+  Notification = () => {
+    NotificationManager.info('Заполните Поля', 'Пожалуйста 🙂', 1500);
+  };
 
   onSubmit = async e => {
     e.preventDefault();
-    const item = {
-      Title: this.state.title,
-      descrtption: this.state.descrtption,
-      Mike: false,
-      Kate: false,
-    };
-    try {
-      await API.addNotes(item);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      this.props.Update();
-      setItems(this.state.title);
-      this.props.onClose();
+    if (this.state.title.trim() !== '') {
+      const item = {
+        Title: this.state.title,
+        descrtption: this.state.descrtption,
+        Mike: false,
+        Kate: false,
+      };
+
+      try {
+        await API.addNotes(item);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.props.Update();
+        setItems(this.state.title);
+        this.props.onClose();
+      }
+    } else {
+      this.Notification();
     }
   };
 
   deleteItem = e => {
-    const selectedEl = e.target.form[2].selectedOptions[0].value;
-    removeItem(selectedEl);
-    this.props.toggle();
+    if (JSON.parse(localStorage.getItem('Items-List')).length !== 0) {
+      const selectedEl = e.target.form[3].selectedOptions[0].value;
+      removeItem(selectedEl);
+      this.props.toggle();
+    }
   };
 
   onChange = e => {
@@ -50,10 +65,17 @@ export default class AddForm extends Component {
   };
 
   onClick = () => {
+    this.setState({ placeHolder: 'Заголовок' });
     this.setState(prev => ({ isExpanded: !prev.isExpanded }));
   };
   onOpenEditor = () => {
     this.setState(prev => ({ showEditor: !prev.showEditor }));
+  };
+  ResetLocalStorage = () => {
+    if (window.localStorage.getItem('Items-List')) {
+      window.localStorage.removeItem('Items-List');
+      this.props.onClose();
+    }
   };
 
   render() {
@@ -74,6 +96,7 @@ export default class AddForm extends Component {
           onClick={this.onClick}
           isExpanded={this.state.isExpanded}
         />
+        <NotificationContainer/>
         <textarea
           className={css.textarea}
           name="descrtption"
@@ -85,10 +108,17 @@ export default class AddForm extends Component {
         ></textarea>
         {!showEditor && (
           <button type="button" onClick={this.onOpenEditor} className={css.showEditor}>
-            Редактировать закладки <img src={editIcon} alt="edit Icon" width='18'/>
+            Редактировать закладки <img src={editIcon} alt="edit Icon" width="18" />
           </button>
         )}
-        {showEditor && <FormEditor items={items} onClick={this.deleteItem} onCancel={this.onOpenEditor} />}
+        {showEditor && (
+          <FormEditor
+            items={items}
+            onClick={this.deleteItem}
+            onCancel={this.onOpenEditor}
+            onReset={this.ResetLocalStorage}
+          />
+        )}
         <div className={css.btnContainer}>
           <button type="submit" className={css.formBtn}></button>
           <button type="button" className={css.formBtnClose} onClick={this.props.onClose}></button>

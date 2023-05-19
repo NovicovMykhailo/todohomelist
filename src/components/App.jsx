@@ -9,6 +9,7 @@ import Modal from './Modal/Modal';
 import { Triangle } from 'react-loader-spinner';
 import Statistics from './Statistics/Statistics';
 
+
 export class App extends Component {
   state = {
     notes: [],
@@ -101,9 +102,7 @@ export class App extends Component {
           return note.Title.toLowerCase().includes(normalizeFilter);
         });
       }
-      return notesArrays.filter(note => note.Kate !== true && note.Mike !== true)
-
-
+      return notesArrays.filter(note => note.Kate !== true && note.Mike !== true);
     }
 
     const foundNotes = filterItem(notes);
@@ -130,13 +129,14 @@ export class App extends Component {
         )}
 
         {isEditModalOpen && (
-          <Modal
-            children={<EditForm onClose={this.onEdit} item={currentCard} Update={this.Update} />}
-            onClose={this.onEdit} 
-          />
+          <Modal onClose={this.onEdit}>
+            <EditForm onClose={this.onEdit} item={currentCard} Update={this.Update} />
+          </Modal>
         )}
         {isAddModalOpen && (
-          <Modal children={<AddForm onClose={this.onAdd} Update={this.Update} toggle={this.onAdd} />} onClose={this.onAdd} />
+          <Modal onClose={this.onAdd}>
+            <AddForm onClose={this.onAdd} Update={this.Update} toggle={this.onAdd} />
+          </Modal>
         )}
       </div>
     );

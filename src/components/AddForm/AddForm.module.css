@@ -40,11 +40,18 @@
   height: 2em;
   width: 2em;
 }
+
 .deleteItem > button:nth-child(1) {
-  background-image: url('../images/delete.svg');
+  background-image: url('../images/back.png');
+  background-size: contain;
 }
 .deleteItem > button:nth-child(3) {
-  background-image: url('../images/cancel-icon.png');
+  background-image: url('../images/delete.svg');
+}
+.deleteItem > button:nth-child(4) {
+  background-image: url('../images/reset.svg');
+  background-size: contain;
+  rotate: 121deg;
 }
 
 .deleteItem > select {

@@ -1,5 +1,6 @@
 @import-normalize;
 /* bring in normalize.css styles */
+
 @font-face {
   font-family: 'DM Sans';
   src: url('./components/fonts/roboto-thin-webfont.woff2') format('woff2'),
@@ -77,18 +78,16 @@ code {
   transform: translateY(0);
   padding: 8px;
 }
-.react-datalist-input__container{
-  width:auto;
+.react-datalist-input__container {
+  width: auto;
 }
 
-
 .react-datalist-input__textbox {
- padding: 8px;
-  border: none;
-  outline: none;
+  padding: 8px !important;
+  border: none !important;
+  outline: none !important;
   background-color: transparent;
-  border-radius: 10px;
-  
+  border-radius: 10px !important;
 }
 .react-datalist-input__listbox {
   top: 38px;
@@ -97,18 +96,20 @@ code {
   max-height: 204px;
   overflow-y: scroll;
   overflow-x: hidden;
-    display: inline-block;
-
+  display: inline-block;
 }
-.react-datalist-input__listbox-option{
+.react-datalist-input__listbox-option {
   width: auto;
   text-transform: capitalize !important;
 }
 .react-datalist-input__listbox::-webkit-scrollbar {
   display: none;
-
 }
-.react-datalist-input__textbox:focus 
- {
-   box-shadow: rgba(18, 215, 215, 0.766) 0px 1px 3px 0px,
-    rgba(3, 230, 230, 0.766) 0px 0px 0px 1px;}
+.react-datalist-input__textbox:focus {
+  box-shadow: rgba(18, 215, 215, 0.766) 0px 1px 3px 0px, rgba(3, 230, 230, 0.766) 0px 0px 0px 1px;
+}
+
+.notification-container {
+  top: 45vh;
+  right: 33vw;
+}
