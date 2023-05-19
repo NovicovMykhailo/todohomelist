@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/todohomelist/static/css/main.47142e5a.css",
-    "main.js": "/todohomelist/static/js/main.35523ef8.js",
+    "main.css": "/todohomelist/static/css/main.e672aa33.css",
+    "main.js": "/todohomelist/static/js/main.f42813e1.js",
     "static/media/pexels-pixabay-229.webp": "/todohomelist/static/media/pexels-pixabay-229.90c2cd2615b70e441607.webp",
     "static/media/roboto-bold-webfont.woff": "/todohomelist/static/media/roboto-bold-webfont.ac304f6f584e827f8572.woff",
     "static/media/roboto-medium-webfont.woff": "/todohomelist/static/media/roboto-medium-webfont.ac4116f2bed3678bae02.woff",
@@ -14,14 +14,15 @@
     "static/media/roboto-regular-webfont.woff2": "/todohomelist/static/media/roboto-regular-webfont.c6aa8986586e956353c5.woff2",
     "static/media/roboto-light-webfont.woff2": "/todohomelist/static/media/roboto-light-webfont.c4fd3f92fa70f7abcaef.woff2",
     "static/media/roboto-thin-webfont.woff2": "/todohomelist/static/media/roboto-thin-webfont.5be48b8cdf3501ad74d6.woff2",
+    "static/media/delete.svg": "/todohomelist/static/media/delete.2a9d0b026b1b1bfdfde2.svg",
     "index.html": "/todohomelist/index.html",
     "static/media/edit-icon.svg": "/todohomelist/static/media/edit-icon.5cca96bbf4bff6375bc6.svg",
     "static/media/radio.svg": "/todohomelist/static/media/radio.7c6983dad004b320a4d9.svg",
-    "main.47142e5a.css.map": "/todohomelist/static/css/main.47142e5a.css.map",
-    "main.35523ef8.js.map": "/todohomelist/static/js/main.35523ef8.js.map"
+    "main.e672aa33.css.map": "/todohomelist/static/css/main.e672aa33.css.map",
+    "main.f42813e1.js.map": "/todohomelist/static/js/main.f42813e1.js.map"
   },
   "entrypoints": [
-    "static/css/main.47142e5a.css",
-    "static/js/main.35523ef8.js"
+    "static/css/main.e672aa33.css",
+    "static/js/main.f42813e1.js"
   ]
 }
