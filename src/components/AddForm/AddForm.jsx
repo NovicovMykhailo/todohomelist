@@ -5,6 +5,7 @@ import DatalistInput from 'react-datalist-input';
 import 'react-datalist-input/dist/styles.css';
 import { items, setItems, removeItem } from '../services/Items';
 import FormEditor from './FormEditor';
+import editIcon from '../images/pencil-edit.svg'
 
 export default class AddForm extends Component {
   state = {
@@ -84,7 +85,7 @@ export default class AddForm extends Component {
         ></textarea>
         {!showEditor && (
           <button type="button" onClick={this.onOpenEditor} className={css.showEditor}>
-            Редактировать закладки 🖉
+            Редактировать закладки <img src={editIcon} alt="edit Icon" width='18'/>
           </button>
         )}
         {showEditor && <FormEditor items={items} onClick={this.deleteItem} onCancel={this.onOpenEditor} />}
