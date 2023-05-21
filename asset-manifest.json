@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/todohomelist/static/css/main.2f5216ac.css",
+    "main.css": "/todohomelist/static/css/main.200b3d3a.css",
     "main.js": "/todohomelist/static/js/main.b2491890.js",
     "static/media/pexels-pixabay-229.webp": "/todohomelist/static/media/pexels-pixabay-229.90c2cd2615b70e441607.webp",
     "static/media/back.png": "/todohomelist/static/media/back.60341aadc6562acbc5a9.png",
@@ -20,16 +20,16 @@
     "static/media/notification.woff?s3g3t9": "/todohomelist/static/media/notification.c392cd33d9d9de730f9d.woff",
     "static/media/notification.ttf?s3g3t9": "/todohomelist/static/media/notification.c5d9251ea82e42f75381.ttf",
     "static/media/delete.svg": "/todohomelist/static/media/delete.c7e3ea49ecadbd2117f2.svg",
-    "static/media/reset.svg": "/todohomelist/static/media/reset.7961c0d862773649a0e2.svg",
     "index.html": "/todohomelist/index.html",
+    "static/media/reset.svg": "/todohomelist/static/media/reset.7961c0d862773649a0e2.svg",
     "static/media/pencil-edit.svg": "/todohomelist/static/media/pencil-edit.6acfa295268944b850d39ac3247425fe.svg",
     "static/media/edit-icon.svg": "/todohomelist/static/media/edit-icon.af88ac62eef237730680.svg",
     "static/media/radio.svg": "/todohomelist/static/media/radio.7c6983dad004b320a4d9.svg",
-    "main.2f5216ac.css.map": "/todohomelist/static/css/main.2f5216ac.css.map",
+    "main.200b3d3a.css.map": "/todohomelist/static/css/main.200b3d3a.css.map",
     "main.b2491890.js.map": "/todohomelist/static/js/main.b2491890.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f5216ac.css",
+    "static/css/main.200b3d3a.css",
     "static/js/main.b2491890.js"
   ]
 }
