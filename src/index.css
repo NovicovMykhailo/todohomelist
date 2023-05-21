@@ -110,6 +110,8 @@ code {
 }
 
 .notification-container {
-  top: 45vh;
-  right: 33vw;
+  margin: 0 auto;
+  right: 50vw;
+  transform: translateX(50%)
+
 }

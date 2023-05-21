@@ -104,6 +104,10 @@
   background-position-y: center;
   transition: all 0.1s ease;
 }
+.formBtn:disabled{
+  background-color: grey;
+  background-image: none;
+}
 .formBtn:hover {
   background-color: rgb(235, 246, 240);
   box-shadow: rgb(235, 246, 240) 0px 30px 90px;
