@@ -4,23 +4,30 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  /* backdrop-filter: blur(2px) */
-  background-color: #ffffff9c;
+  background-color: #ffffffde;
 }
 .button {
   font-size: 80px;
-  font-weight: 100;
+  font-weight: 500;
+  background-color: #ffffff6e;
   height: 90px;
   width: 90px;
   right: 40px;
   bottom: 40px;
   border-radius: 50%;
   border: none;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+   */
+box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   cursor: pointer;
   transition: all 0.3s ease;
   position: fixed;
   z-index: 99999999;
+  background-image: url('../images/flat.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
 }
 .button:hover {
   scale: 1.1;
@@ -37,5 +44,7 @@
     width: 35px;
     height: 35px;
     position: initial;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  
   }
 }

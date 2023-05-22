@@ -5,7 +5,7 @@ export default function Header(props) {
     return (
       <div className={css.headder}>
         <button type="button" className={css.button} onClick={props.onAdd}>
-          +
+          
         </button>
         <Filter onChange={props.onChange} filterValue={props.filterValue} />
       </div>
