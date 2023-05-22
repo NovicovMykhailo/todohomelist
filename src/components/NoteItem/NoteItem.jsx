@@ -25,15 +25,20 @@ export default class NoteItem extends Component {
   }
 
   async componentDidUpdate(prevProps, prevState) {
-    if (this.state.Mike !== prevState.Mike || this.state.Kate !== prevState.Kate) {
-      const moddedItem = {
-        Kate: this.state.Kate,
-        Mike: this.state.Mike,
-      };
-      try {
-        API.modifyNotes(this.props.note.id, moddedItem);
-      } catch (error) {
-        console.log(error);
+
+    if (this.props.filtered !== true) {
+      if (this.state.Mike !== prevState.Mike || this.state.Kate !== prevState.Kate) {
+        const moddedItem = {
+          Kate: this.state.Kate,
+          Mike: this.state.Mike,
+        };
+
+        try {
+          await API.modifyNotes(this.props.note.id, moddedItem);
+          this.props.update();
+        } catch (error) {
+          console.log(error);
+        }
       }
     }
   }

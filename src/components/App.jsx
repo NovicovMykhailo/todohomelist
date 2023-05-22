@@ -22,6 +22,7 @@ export class App extends Component {
     Mike: false,
     Kate: false,
     ShowAll: false,
+    filtered: false,
   };
 
   async componentDidMount() {
@@ -51,17 +52,18 @@ export class App extends Component {
   }
 
   filtered = data => {
+    //switcher
     if (data.target.id === 'Kate') {
-      this.setState(prevState => ({ Kate: !prevState.Kate }));
+      this.setState(prevState => ({ Kate: !prevState.Kate, filtered: !prevState.filtered }));
     }
     if (data.target.id === 'Mike') {
-      this.setState(prevState => ({ Mike: !prevState.Mike }));
+      this.setState(prevState => ({ Mike: !prevState.Mike, filtered: !prevState.filtered }));
     }
     if (data.target.id === 'ShowAll') {
-      this.setState(prevState => ({ ShowAll: !prevState.ShowAll }));
+      this.setState(prevState => ({ ShowAll: !prevState.ShowAll, filtered: !prevState.filtered }));
     }
     if (data.target.placeholder === 'find') {
-      this.setState({ filter: data.target.value });
+      this.setState({ filter: data.target.value, filtered: true });
     }
   };
 
@@ -124,7 +126,7 @@ export class App extends Component {
         {status === 'resolve' && (
           <>
             <Statistics props={notes} />
-            <NoteList notes={foundNotes} onEdit={this.onEdit} data={this.showItem} update={this.Update} />
+            <NoteList notes={foundNotes} onEdit={this.onEdit} data={this.showItem} update={this.Update} filtered={this.state.filtered} />
           </>
         )}
 
