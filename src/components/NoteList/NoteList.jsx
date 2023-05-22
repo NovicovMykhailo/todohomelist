@@ -7,7 +7,7 @@ export default function Notelist({notes, onEdit, data, update, filtered}) {
     <div className={css.container}>
       <ul className={css.list}>
         {notes.slice('').reverse().map(note => (
-          <NoteItem key={note.id} note={note} onEdit={onEdit} data={data} update={update} filtered={filtered} />
+          <NoteItem key={note.id} note={note} onEdit={onEdit} data={data} update={update} />
         ))}
       </ul>
     </div>

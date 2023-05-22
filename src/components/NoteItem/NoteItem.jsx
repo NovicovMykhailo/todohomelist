@@ -24,25 +24,6 @@ export default class NoteItem extends Component {
     });
   }
 
-  async componentDidUpdate(prevProps, prevState) {
-
-    if (this.props.filtered !== true) {
-      if (this.state.Mike !== prevState.Mike || this.state.Kate !== prevState.Kate) {
-        const moddedItem = {
-          Kate: this.state.Kate,
-          Mike: this.state.Mike,
-        };
-
-        try {
-          await API.modifyNotes(this.props.note.id, moddedItem);
-          this.props.update();
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    }
-  }
-
   onChange = e => {
     this.setState(prevState => ({
       [e.target.name]: !prevState[e.target.name],
@@ -55,6 +36,8 @@ export default class NoteItem extends Component {
       title: this.props.note.Title,
       descrtption: this.props.note.descrtption,
       id: this.state.id,
+      Mike: this.state.Mike,
+      Kate: this.state.Kate,
     };
     this.props.data(CardData);
   };
@@ -70,15 +53,42 @@ export default class NoteItem extends Component {
   };
 
   activeItem() {
-    if (this.state.Mike) {
-      return 'rgb(27,168,240)';
-    }
-    if (this.state.Kate) {
-      return 'rgb(239,195,195)';
-    }
+    if (this.state.Mike) return 'rgb(27,168,240)';
+    if (this.state.Kate) return 'rgb(239,195,195)';
     return 'rgb(211, 230, 220)';
   }
 
+  onCheck = async e => {
+    const name = e.target.id;
+    const checked = e.target.checked;
+    let moddedItem = {
+      Kate: false,
+      Mike: false,
+    };
+
+    if (name === 'Kate' && checked === true) {
+      moddedItem = { ...moddedItem, Kate: true };
+    }
+    if (name === 'Kate' && checked === false) {
+      moddedItem = { ...moddedItem, Kate: false };
+    }
+
+    if (name === 'Mike' && checked === true) {
+      moddedItem = { ...moddedItem, Mike: true };
+    }
+    if (name === 'Mike' && checked === false) {
+      moddedItem = { ...moddedItem, Mike: false };
+    }
+
+    try {
+         await API.modifyNotes(this.props.note.id, moddedItem);
+          this.props.update();
+        } catch (error) {
+          console.log(error);
+        }
+      
+  };
+  
   render() {
     const normalizedDate = format(new Date(this.props.note.createdAt), 'dd MMM ', {
       locale: ru,
@@ -96,15 +106,31 @@ export default class NoteItem extends Component {
         <div className={css.checkBoxes}>
           <div className={css.asside}>
             <div className={css.checkBoxWrapper}>
-              <label>
+              <label >
                 Kate
-                <input type="checkbox" name="Kate" id="Kate" checked={Kate} onChange={this.onChange} />
+                <input
+                  type="checkbox"
+                  name="Kate"
+                  id="Kate"
+                  checked={Kate}
+                  onChange={this.onChange}
+                  onClick={this.onCheck}
+                  disabled={Mike}
+                />
               </label>
             </div>
             <div className={css.checkBoxWrapper}>
-              <label>
+              <label >
                 Mike
-                <input type="checkbox" name="Mike" id="Mike" checked={Mike} onChange={this.onChange} />
+                <input
+                  type="checkbox"
+                  name="Mike"
+                  id="Mike"
+                  checked={Mike}
+                  onChange={this.onChange}
+                  onClick={this.onCheck}
+                  disabled={Kate}
+                />
               </label>
             </div>
           </div>

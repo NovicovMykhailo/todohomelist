@@ -1,15 +1,10 @@
 import css from './Filter.module.css';
+import { useState } from 'react';
 
 export default function Filter({ onChange, filterValue }) {
   return (
     <div className={css.fieldset}>
-      <input
-        type="text"
-        placeholder="find"
-        className={css.field}
-        onChange={onChange}
-        value={filterValue}
-      />
+      <input type="text" placeholder="find" className={css.field} onChange={onChange} value={filterValue} />
       <div className={css.checkContainer}>
         <label>
           Mike
@@ -20,7 +15,7 @@ export default function Filter({ onChange, filterValue }) {
           <input type="checkbox" name="filter" id="Kate" onChange={onChange} className={css.radio} />
         </label>
         <label>
-         All
+          All
           <input type="checkbox" name="filter" id="ShowAll" onChange={onChange} className={css.radio} />
         </label>
       </div>

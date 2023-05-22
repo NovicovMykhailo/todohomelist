@@ -3,7 +3,7 @@ import DatalistInput from 'react-datalist-input';
 import 'react-datalist-input/dist/styles.css';
 import css from './EditForm.module.css';
 import * as API from '../services/API';
-import { items} from '../services/Items';
+import { items } from '../services/Items';
 
 export default class EditForm extends Component {
   state = {
@@ -11,11 +11,13 @@ export default class EditForm extends Component {
     descrtption: '',
     id: null,
     isExpanded: false,
+    Mike: false,
+    Kate: false,
   };
 
   componentDidMount() {
-    const { title, descrtption, id } = this.props.item;
-    this.setState({ title: title, descrtption: descrtption, id: id });
+    const { title, descrtption, id, Mike, Kate } = this.props.item;
+    this.setState({ title: title, descrtption: descrtption, id: id, Mike: Mike, Kate: Kate });
   }
 
   onSubmit = async e => {
@@ -24,6 +26,8 @@ export default class EditForm extends Component {
     const moddedItem = {
       Title: this.state.title,
       descrtption: this.state.descrtption,
+      Kate: this.state.Kate,
+      Mike: this.state.Mike,
     };
 
     try {
@@ -44,12 +48,38 @@ export default class EditForm extends Component {
   resetForm = () => {
     this.setState({ title: '', description: '' });
   };
+  onCheckBoxSet = e => {
+    const name = e.target.name;
+    if (name === 'Kate') {
+      this.setState(prev => ({ Kate: !prev.Kate }));
+    } else if (name === 'Mike') {
+      this.setState(prev => ({ Mike: !prev.Mike }));
+    }
+
+  };
 
   render() {
     const { title, descrtption } = this.state;
     return (
       <form onSubmit={this.onSubmit} className={css.form}>
         <h3 className={css.editName}>Изменить Заметку</h3>
+
+        {/*checkboxes*/}
+        <div className={css.checkBoxes}>
+          <div className={css.checkBoxWrapper}>
+            <label>
+              Kate
+              <input type="checkbox" name="Kate" id="Kate" checked={this.state.Kate} onChange={this.onCheckBoxSet} />
+            </label>
+          </div>
+          <div className={css.checkBoxWrapper}>
+            <label>
+              Mike
+              <input type="checkbox" name="Mike" id="Mike" checked={this.state.Mike} onChange={this.onCheckBoxSet} />
+            </label>
+          </div>
+        </div>
+        
         <DatalistInput
           className={css.editInput}
           name="title"

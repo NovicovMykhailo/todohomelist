@@ -9,7 +9,6 @@ import Modal from './Modal/Modal';
 import { Triangle } from 'react-loader-spinner';
 import Statistics from './Statistics/Statistics';
 
-
 export class App extends Component {
   state = {
     notes: [],
@@ -22,7 +21,6 @@ export class App extends Component {
     Mike: false,
     Kate: false,
     ShowAll: false,
-    filtered: false,
   };
 
   async componentDidMount() {
@@ -52,20 +50,20 @@ export class App extends Component {
   }
 
   filtered = data => {
-    //switcher
     if (data.target.id === 'Kate') {
-      this.setState(prevState => ({ Kate: !prevState.Kate, filtered: !prevState.filtered }));
+      this.setState(prevState => ({ Kate: !prevState.Kate }));
     }
     if (data.target.id === 'Mike') {
-      this.setState(prevState => ({ Mike: !prevState.Mike, filtered: !prevState.filtered }));
+      this.setState(prevState => ({ Mike: !prevState.Mike }));
     }
     if (data.target.id === 'ShowAll') {
-      this.setState(prevState => ({ ShowAll: !prevState.ShowAll, filtered: !prevState.filtered }));
+      this.setState(prevState => ({ ShowAll: !prevState.ShowAll }));
     }
     if (data.target.placeholder === 'find') {
-      this.setState({ filter: data.target.value, filtered: true });
+      this.setState({ filter: data.target.value });
     }
   };
+
 
   onEdit = () => {
     this.setState(prev => ({ isEditModalOpen: !prev.isEditModalOpen }));
@@ -84,27 +82,36 @@ export class App extends Component {
     this.setState(prevState => ({ doesItChange: prevState.doesItChange + 1 }));
   };
 
-
   render() {
     const { status, notes, isEditModalOpen, isAddModalOpen, currentCard, filter, Mike, Kate, ShowAll } = this.state;
     const normalizeFilter = filter.toLowerCase();
 
     function filterItem(notesArrays) {
       if (Mike !== false) {
+        // filtered onMike===true
         return notesArrays.filter(note => note.Mike);
       }
       if (Kate !== false) {
+        // filtered on Kate===true
         return notesArrays.filter(note => note.Kate);
       }
       if (ShowAll !== false) {
+        // filtered reset
         return notesArrays;
       }
-      if (filter !== '') {
+      if (filter !== '' && isNaN(filter)) {
+        //filtered on string
         return notesArrays.filter(note => {
           return note.Title.toLowerCase().includes(normalizeFilter);
         });
       }
-      return notesArrays.filter(note => note.Kate !== true && note.Mike !== true);
+      if (filter !== '' && !isNaN(filter)) {
+        // filtered on date
+        return notesArrays.filter(note => {
+          return new Date(note.createdAt).getDate().toString().includes(filter);
+        });
+      }
+      return notesArrays.filter(note => note.Kate !== true && note.Mike !== true); // show rest not filtered items
     }
 
     const foundNotes = filterItem(notes);
@@ -126,7 +133,7 @@ export class App extends Component {
         {status === 'resolve' && (
           <>
             <Statistics props={notes} />
-            <NoteList notes={foundNotes} onEdit={this.onEdit} data={this.showItem} update={this.Update} filtered={this.state.filtered} />
+            <NoteList notes={foundNotes} onEdit={this.onEdit} data={this.showItem} update={this.Update} />
           </>
         )}
 
