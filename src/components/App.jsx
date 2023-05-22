@@ -38,7 +38,6 @@ export class App extends Component {
 
   async componentDidUpdate(prevProps, prevState) {
     if (this.state.doesItChange !== prevState.doesItChange) {
-      // console.log('will update');
       try {
         this.setState({ status: 'pending' });
         const notes = await API.getNotes();
@@ -82,6 +81,7 @@ export class App extends Component {
     this.setState({ status: 'pending' });
     this.setState(prevState => ({ doesItChange: prevState.doesItChange + 1 }));
   };
+
 
   render() {
     const { status, notes, isEditModalOpen, isAddModalOpen, currentCard, filter, Mike, Kate, ShowAll } = this.state;

@@ -63,6 +63,7 @@ export default class NoteItem extends Component {
       this.props.update();
     }
   };
+
   activeItem() {
     if (this.state.Mike) {
       return 'rgb(27,168,240)';
