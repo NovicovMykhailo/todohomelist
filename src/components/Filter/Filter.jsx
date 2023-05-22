@@ -1,5 +1,4 @@
 import css from './Filter.module.css';
-import { useState } from 'react';
 
 export default function Filter({ onChange, filterValue }) {
   return (
