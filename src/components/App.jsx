@@ -8,6 +8,7 @@ import AddForm from './AddForm/AddForm';
 import Modal from './Modal/Modal';
 import { Triangle } from 'react-loader-spinner';
 import Statistics from './Statistics/Statistics';
+import Tost from './Tost/Tost';
 
 export class App extends Component {
   state = {
@@ -21,6 +22,8 @@ export class App extends Component {
     Mike: false,
     Kate: false,
     ShowAll: false,
+    isListFull: false,
+    errorMessage: '',
   };
 
   async componentDidMount() {
@@ -43,6 +46,7 @@ export class App extends Component {
         if (notes) {
           this.setState({ notes: notes.data, status: 'resolve' });
         }
+        if (this.state.errorMessage !== '') this.setState(prev => ({ isListFull: !prev.isListFull }));
       } catch (error) {
         console.log(error);
       }
@@ -63,8 +67,9 @@ export class App extends Component {
       this.setState({ filter: data.target.value });
     }
   };
-
-
+  onError = error => {
+    this.setState({ errorMessage: error.response.data });
+  };
   onEdit = () => {
     this.setState(prev => ({ isEditModalOpen: !prev.isEditModalOpen }));
   };
@@ -82,8 +87,22 @@ export class App extends Component {
     this.setState(prevState => ({ doesItChange: prevState.doesItChange + 1 }));
   };
 
+  onFullList = () => {};
+
   render() {
-    const { status, notes, isEditModalOpen, isAddModalOpen, currentCard, filter, Mike, Kate, ShowAll } = this.state;
+    const {
+      status,
+      notes,
+      isEditModalOpen,
+      isAddModalOpen,
+      currentCard,
+      filter,
+      Mike,
+      Kate,
+      ShowAll,
+      errorMessage,
+      isListFull,
+    } = this.state;
     const normalizeFilter = filter.toLowerCase();
 
     function filterItem(notesArrays) {
@@ -136,6 +155,11 @@ export class App extends Component {
             <NoteList notes={foundNotes} onEdit={this.onEdit} data={this.showItem} update={this.Update} />
           </>
         )}
+        {isListFull && (
+          <Modal onClose={() => this.setState(prev => ({ isListFull: !prev.isListFull, errorMessage: '' }))}>
+            <Tost message={errorMessage} />
+          </Modal>
+        )}
 
         {isEditModalOpen && (
           <Modal onClose={this.onEdit}>
@@ -144,7 +168,7 @@ export class App extends Component {
         )}
         {isAddModalOpen && (
           <Modal onClose={this.onAdd}>
-            <AddForm onClose={this.onAdd} Update={this.Update} toggle={this.onAdd} />
+            <AddForm onClose={this.onAdd} Update={this.Update} toggle={this.onAdd} onError={this.onError} />
           </Modal>
         )}
       </div>

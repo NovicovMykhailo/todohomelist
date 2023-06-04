@@ -19,6 +19,7 @@ export default class AddForm extends Component {
     isExpanded: false,
     items: items(),
     showEditor: false,
+
   };
   Notification = () => {
     NotificationManager.info('Заполните Поля', 'Пожалуйста 🙂', 1500);
@@ -35,9 +36,10 @@ export default class AddForm extends Component {
       };
 
       try {
-        await API.addNotes(item);
+        await API.addNotes(item).then(data => { if (data.name === 'AxiosError') this.props.onError(data) });
       } catch (error) {
         console.log(error);
+   
       } finally {
         this.props.Update();
         setItems(this.state.title);

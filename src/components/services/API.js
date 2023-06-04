@@ -17,7 +17,9 @@ export async function addNotes(obj) {
 
     return response;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    return error
+
   }
 }
 

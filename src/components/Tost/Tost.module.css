@@ -1,0 +1,27 @@
+.toastContainer {
+  position: absolute;
+  width: 300px;
+  top: 160px;
+  left: 50%;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  transform: translateX(-50%);
+  overflow: hidden;
+  z-index: 9999;
+}
+.toastTitle {
+  display: block;
+  padding: 10px 0;
+  background-color: rgb(148, 89, 68);
+  color: white;
+  margin-bottom: 30px;
+}
+
+.toastMessage{
+  text-transform: capitalize;
+  width: 80%;
+  margin: 0 auto;
+  line-height: 1.6rem;
+}
